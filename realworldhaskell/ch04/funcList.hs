@@ -1,0 +1,31 @@
+-- list of haskell functions from standard libraries that were detailed in ch04:
+-- lines: break on newlines
+-- elem: is a value in a list? can use infix notation
+-- isPrefix/Infix/SuffixOf: is a prefix/infix/suffix of something, can also use infix notation
+-- length: returns length of a list
+-- null: determine whether a list is empty
+-- head: return the first element of a list
+-- tail: return all but the head of a list
+-- last: return the very last element of a list
+-- init: return a list of all but the last element
+-- ++: append function
+-- concat: takes a list of lists of the same type, and concatenates them into a single list
+-- reverse: reverses the thing
+-- and: takes a list, generalizes &&
+-- or: generalizes ||
+-- all: takes a predicate function and a list of any type, returns true if the predicate succeeds for all elements
+-- any: takes a predicate function and a list of any type, returns true if the predicate succeeds for any element
+-- take: returns a sublist containing the first k elements of a list
+-- drop: returns a sublist not containing the first k elements of a list
+-- splitAt: combines take and drop, returning a pair of the input list, split at the given index
+-- takeWhile: take elements from the beginning of the list as long as the element passes the predicate
+-- dropWhile: drop elements from the beginning of the list as long as the element fails the predicate
+-- break: tuples up a list when the predicate fails
+-- span: tuples up a list when the predicate succeeds
+-- filter: takes a predicate, returns every element in the list on which the predicate succeeds
+-- zip: takes two lists and "zips" them into a single list of pairs. The resulting list is the same
+--      length as the shorter of the two inputs.
+-- zipWith: takes two lists and applies a function to each pair of elements, generating a new list
+-- unlines: takes lists of lists and puts them in one list with newlines inserted
+-- words: splits an input string on any white space
+-- unwords: uses a single space to join a list of words
