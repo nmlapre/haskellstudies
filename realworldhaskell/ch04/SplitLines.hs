@@ -5,7 +5,7 @@
 -- not to break the list at that point. The break function returns a pair, which consists
 -- of the sublist before the predicate returned True, and the rest of the list (pre, suf).
 
-uplitLines [] = []
+splitLines [] = []
 splitLines cs =
     let (pre, suf) = break isLineTerminator cs
     in  pre : case suf of
