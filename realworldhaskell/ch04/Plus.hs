@@ -1,11 +1,29 @@
--- Here we use "infix form" to put a function between two arguments as a purely syntactic convenience.
--- Pretty cool either way.
+import System.Environment (getArgs)
 
-a `plus` b = a + b
+interactWith function inputFile outputFile = do
+  input <- readFile inputFile
+  writeFile outputFile (function input)
 
-data a `Pair` b = a `Pair` b
-                  deriving (Show)
+main = mainWith myFunction
+  where mainWith function = do
+          args <- getArgs
+          case args of
+            [input,output] -> interactWith function input output
+            _ -> putStrLn "error: exactly two arguments needed"
 
--- we can use the constructor either prefix or infix
-foo = Pair 1 2
-bar = True `Pair` "quux"
+        -- replace "id" with the name of the function below
+        myFunction = fixLines
+
+fixLines :: String -> String
+fixLines input = unlines (splitLines input)
+
+splitLines [] = []
+splitLines cs =
+    let (pre, suf) = break isLineTerminator cs
+    in  pre : case suf of
+                ('\r':'\n':rest) -> splitLines rest
+                ('\r':rest)      -> splitLines rest
+                ('\n':rest)      -> splitLines rest
+                _                -> []
+
+isLineTerminator c = c == '\r' || c == '\n'
