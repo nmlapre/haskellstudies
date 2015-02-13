@@ -14,3 +14,8 @@ foldlSum xs = foldl step 0 xs
 -- a nicer sum: foldl, plus function, initial value of accumulator, and list
 niceSum :: [Integer] -> Integer
 niceSum xs = foldl (+) 0 xs
+
+-- an even nicer sum, omitting the list xs from both the parameter list and the parameters to foldl
+-- this gives a more compact function of the same type
+nicerSum :: [Integer] -> Integer
+nicerSum :: foldl (+) 0
